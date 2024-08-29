@@ -1,0 +1,54 @@
+{
+  "file_name": "泉口村访谈数据统计.xlsx",
+  "output_file_name": "泉口村访谈数据量化",
+  "questions":
+  [
+    {
+      "id": 16,
+      "type": "single_choice",
+      "title": "对象家中常备药品情况",
+      "range": 5,
+      "weight": 0.20
+    },
+    {
+      "id": 19,
+      "type": "single_choice",
+      "title": "每年用于医疗保健的支出范围",
+      "range": 5,
+      "weight": 0.20
+    },
+    {
+      "id": 21,
+      "type": "multiple_choice",
+      "title": "曾选择过的医疗途径",
+      "choices": 6,
+      "choices_weight": [0.1, 0.2, 0.25, 0.1, 0.3, 0.05],
+      "weight": 0.20
+    },
+    {
+      "id": 29,
+      "type": "true_false",
+      "title": "是否知道新农合医保",
+      "weight": 0.05
+    },
+    {
+      "id": 30,
+      "type": "true_false",
+      "title": "是否使用过新农合医保",
+      "weight": 0.05
+    },
+    {
+      "id": 31,
+      "type": "single_choice",
+      "title": "根据医保政策的受益情况，其愿意承担的最高费用",
+      "range": 7,
+      "weight": 0.20
+    },
+    {
+      "id": 34,
+      "type": "true_false",
+      "title": "认为体检是否有必要",
+      "weight": 0.10
+    }
+  ]
+}
