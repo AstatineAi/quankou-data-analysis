@@ -1,4 +1,5 @@
 import pandas as pd
+from matplotlib import pyplot as plt
 import json
 import re
 
@@ -7,6 +8,18 @@ def extract_question_id(column_name):
     if match:
         return match.group(1)
     return None
+
+def save_results(results, config):
+    results.to_excel(config['output_file_name'] + '.xlsx', index=False)
+    results.to_csv(config['output_file_name'] + '.csv', index=False)
+    
+def draw_results(results):
+    # 画出得分总的分布情况
+    scores = results['总分']
+    plt.hist(scores, bins=20, edgecolor='black')
+    plt.xlabel('Score')
+    plt.ylabel('Number of interviewees')
+    plt.show()
 
 def main():
     with open('config.json', 'r', encoding='utf-8') as f:
@@ -47,8 +60,8 @@ def main():
     results['总分'] = results[numeric_columns].sum(axis=1) * 100
     results = results.round(4)
     
-    results.to_excel(config['output_file_name'] + '.xlsx', index=False)
-    results.to_csv(config['output_file_name'] + '.csv', index=False)
+    draw_results(results)
+    # save_results(results, config)
     
     print("Analysis completed") 
 
