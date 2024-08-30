@@ -4,6 +4,16 @@
   "questions":
   [
     {
+      "id": 3,
+      "type": "info",
+      "title": "访谈对象姓名"
+    },
+    {
+      "id": 4,
+      "type": "info",
+      "title": "访谈家庭户主"
+    },
+    {
       "id": 16,
       "type": "single_choice",
       "title": "对象家中常备药品情况",

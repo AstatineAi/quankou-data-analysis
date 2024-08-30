@@ -19,7 +19,7 @@ def main():
         q_id = question['id']
         q_title = question['title']
         q_type = question['type']
-        q_weight = question['weight']
+        q_weight = question.get('weight', 0)
         
         question_cols = [col for col in data.columns if extract_question_id(col) == str(q_id)]
         
@@ -40,8 +40,11 @@ def main():
             results[str(idx) + '. ' + q_title] = data[question_cols].sum(axis=1) * q_weight
         elif q_type == 'true_false':
             results[str(idx) + '. ' + q_title] = data[question_cols[0]].apply(lambda x: 1 - x) * q_weight
+        elif q_type == 'info':
+            results[str(idx) + '. ' + q_title] = data[question_cols[0]]
     
-    results['总分'] = results.sum(axis=1) * 100
+    numeric_columns = results.select_dtypes(include='number').columns
+    results['总分'] = results[numeric_columns].sum(axis=1) * 100
     results = results.round(4)
     
     results.to_excel(config['output_file_name'] + '.xlsx', index=False)
